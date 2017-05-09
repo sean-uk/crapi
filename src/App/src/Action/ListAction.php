@@ -22,6 +22,8 @@ class ListAction implements MiddlewareInterface
      */
     public function process(ServerRequestInterface $request, DelegateInterface $delegate)
     {
+        $thingyName = $request->getAttribute('thingy');
+
         $response = [];
         $json = json_encode($response);
         return new JsonResponse($json);
