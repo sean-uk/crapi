@@ -2,6 +2,11 @@
 
 An example of a basic HTTP API based on the [Zend Expressive Skeleton](https://github.com/zendframework/zend-expressive-skeleton).
 
+## Installation
+
+A standard LAMP setup with a VHost pointing at `public/index.php` will do.
+Just go to the parent folder and run a plain old `compoer install`
+
 ## What I Did:
 
 This is based on the [Expressive Skeleton Quick Start](http://zendframework.github.io/zend-expressive/getting-started/skeleton/).
