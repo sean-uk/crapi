@@ -20,11 +20,11 @@ return [
         // not require arguments to the constructor. Map a service name to the
         // class name.
         'invokables' => [
-            // Fully\Qualified\InterfaceName::class => Fully\Qualified\ClassName::class,
+            App\Action\ListAction::class => App\Action\ListAction::class,
             Helper\ServerUrlHelper::class => Helper\ServerUrlHelper::class,
         ],
         // Use 'factories' for services provided by callbacks/factory classes.
-        'factories'  => [
+        'factories' => [
             Application::class                => Container\ApplicationFactory::class,
             Delegate\NotFoundDelegate::class  => Container\NotFoundDelegateFactory::class,
             Helper\ServerUrlMiddleware::class => Helper\ServerUrlMiddlewareFactory::class,

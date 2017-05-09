@@ -25,3 +25,4 @@
  *     'contact'
  * );
  */
+$app->post('/{thingy}/list', App\Action\ListAction::class, 'thingy.list');
