@@ -25,4 +25,6 @@
  *     'contact'
  * );
  */
-$app->post('/{thingy}/list', App\Action\ListAction::class, 'thingy.list');
+$app->get('/{type}/list', App\Action\ListAction::class, 'type.list');
+$app->get('/{type}/{id}', App\Action\GetAction::class, 'type.get');
+$app->put('/{type}/{id}', App\Action\PutAction::class, 'type.put');

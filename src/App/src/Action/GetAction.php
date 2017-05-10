@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: sean.james
- * Date: 09/05/2017
- * Time: 15:54
+ * Date: 10/05/2017
+ * Time: 09:34
  */
 
 namespace App\Action;
@@ -14,23 +14,19 @@ use Zend\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
- * List all the items of a given type
+ * Get an item of a particular type by it's ID
  *
- * Class ListAction
+ * Class GetAction
  * @package App\Action
  */
-class ListAction implements MiddlewareInterface
+class GetAction implements MiddlewareInterface
 {
-    /**
-     * @param ServerRequestInterface $request
-     * @param DelegateInterface $delegate
-     * @return
-     */
     public function process(ServerRequestInterface $request, DelegateInterface $delegate)
     {
         $typeName = $request->getAttribute('type');
+        $id = $request->getAttribute('id');
 
-        $response = [];
+        $response = false;
         $json = json_encode($response);
         return new JsonResponse($json);
     }
