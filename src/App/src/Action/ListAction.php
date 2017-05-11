@@ -19,16 +19,12 @@ use Swagger as SWG;
  *
  * Class ListAction
  * @package App\Action
- *
- * @SWG\Swagger(
- *      @SWG\Info(title="crAPI List Action", version="0.1")
- * )
  */
 class ListAction implements MiddlewareInterface
 {
     /**
      * @SWG\Get(
-     *     path="/{type}",
+     *     path="/type/{type}/list",
      *     summary="list items of {type}",
      *     parameters={
      *          @SWG\Parameter(name="type", type="string", required=true, in="path")
@@ -36,7 +32,7 @@ class ListAction implements MiddlewareInterface
      *     @SWG\Response(
      *          response=200,
      *          description="A list of strings",
-     *          @SWG\Schema(type="array", example="['HELLO WORLD!']")
+     *          @SWG\Schema(type="array", @SWG\Items(ref="#/definitions/item"))
      *      )
      * )
      *

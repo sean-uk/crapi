@@ -20,6 +20,19 @@ use Swagger;
  * Class ApiDocAction
  * @package App\Action
  *
+ * @SWG\Swagger(
+ *      @SWG\Info(title="crAPI - A resful(ish) api for CRUD'ing stuff of different 'types'", version="0.1"),
+ *      definitions={
+ *          @SWG\Definition(
+ *              definition="item",
+ *              properties={
+ *                  @SWG\Property(property="id", type="string", description="An ID string unique to things of this type"),
+ *                  @SWG\Property(property="value", type="string", description="The value of this thing")
+ *              }
+ *          )
+ *     }
+ * )
+ *
  * @see http://zircote.com/swagger-php/
  * @see https://github.com/zircote/swagger-php
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#operationObject
@@ -28,7 +41,7 @@ class ApiDocAction implements MiddlewareInterface
 {
     public function process(ServerRequestInterface $request, DelegateInterface $delegate)
     {
-        $swagger = Swagger\scan('/var/www/localhost/crAPI/src/App/src/Action/ListAction.php');
+        $swagger = Swagger\scan(__DIR__);
         return new JsonResponse($swagger);
     }
 }
