@@ -31,9 +31,9 @@ class ListAction implements MiddlewareInterface
      *     },
      *     @SWG\Response(
      *          response=200,
-     *          description="A list of strings",
+     *          description="A list of Items",
      *          @SWG\Schema(type="array", @SWG\Items(ref="#/definitions/item"))
-     *      )
+     *      ),
      * )
      *
      * @param ServerRequestInterface $request

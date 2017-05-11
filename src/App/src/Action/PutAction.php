@@ -12,6 +12,7 @@ use Interop\Http\ServerMiddleware\DelegateInterface;
 use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Zend\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ServerRequestInterface;
+use Swagger as SWG;
 
 /**
  * Store an item of a given type under a given ID
@@ -21,6 +22,25 @@ use Psr\Http\Message\ServerRequestInterface;
  */
 class PutAction implements MiddlewareInterface
 {
+    /**
+     * @SWG\Put(
+     *      path="type/{type}/put/{id}",
+     *      summary="Insert / Update an Item of type {type}",
+     *      parameters={
+     *          @SWG\Parameter(name="type", type="string", required=true, in="path"),
+     *          @SWG\Parameter(name="id", type="string", required=true, in="path")
+     *      },
+     *      @SWG\Response(
+     *          response="default",
+     *          description="Whether or not the operation succeeded",
+     *          @SWG\Schema(type="boolean")
+     *      )
+     * )
+     *
+     * @param ServerRequestInterface $request
+     * @param DelegateInterface $delegate
+     * @return JsonResponse
+     */
     public function process(ServerRequestInterface $request, DelegateInterface $delegate)
     {
         $typeName = $request->getAttribute('type');
