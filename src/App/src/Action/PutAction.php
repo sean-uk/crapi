@@ -72,7 +72,6 @@ class PutAction extends Action implements MiddlewareInterface
             $response = false;
         }
 
-        $json = json_encode($response);
-        return new JsonResponse($json);
+        return new JsonResponse($response);
     }
 }

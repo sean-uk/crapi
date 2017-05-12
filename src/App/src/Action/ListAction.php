@@ -45,8 +45,7 @@ class ListAction extends Action implements MiddlewareInterface
     {
         $typeName = $request->getAttribute('type');
 
-        $response = [];
-        $json = json_encode($response);
-        return new JsonResponse($json);
+        $items = $this->getItemRepo()->findBy(['type'=>$typeName]);
+        return new JsonResponse($items);
     }
 }
