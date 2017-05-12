@@ -24,6 +24,11 @@ to build the schema.
 Open up your faviourite API Client (ie; Postman / RESTClient) and make a request to "/api" on the VHost you set up.
 It will reply with JSON API documentation. You can explore the API's functionality from there!
 
+### Dummy Auth Header
+
+A dummy auth header middleware has been added to the api routes. 
+To try it out, add a header in your request called "Auth", with the value simply "false".  
+
 ## What I Did:
 
 This is based on the [Expressive Skeleton Quick Start](http://zendframework.github.io/zend-expressive/getting-started/skeleton/).
@@ -38,3 +43,7 @@ This is based on the [Expressive Skeleton Quick Start](http://zendframework.gith
 
 6. Start adding some RESTful API documentation using [swagger-php](https://github.com/zircote/swagger-php/blob/master/docs/Getting-started.md).
 7. Start setting up [Doctrine ORM for Zend Expressive](https://www.jamestitcumb.com/posts/integrating-doctrine-expressive-easier)
+
+...
+
+8. Configure [route-specific middleware](https://docs.zendframework.com/zend-expressive/cookbook/route-specific-pipeline/) for authentication.

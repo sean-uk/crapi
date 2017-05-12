@@ -13,6 +13,7 @@ use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Diactoros\Response\JsonResponse;
 use Swagger;
+use App\Action\Action;
 
 /**
  * Get an API doc response for a given route
@@ -38,7 +39,7 @@ use Swagger;
  * @see https://github.com/zircote/swagger-php/blob/master/docs/Getting-started.md
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#operationObject
  */
-class ApiDocAction implements MiddlewareInterface
+class ApiDocAction extends Action implements MiddlewareInterface
 {
     public function process(ServerRequestInterface $request, DelegateInterface $delegate)
     {
