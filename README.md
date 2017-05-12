@@ -21,7 +21,7 @@ to build the schema.
 
 ## Usage
 
-Open up your faviourite API Client (ie; Postman / RESTClient) and make a request to the VHost you set up.
+Open up your faviourite API Client (ie; Postman / RESTClient) and make a request to "/api" on the VHost you set up.
 It will reply with JSON API documentation. You can explore the API's functionality from there!
 
 ## What I Did:

@@ -25,7 +25,7 @@ class ListAction extends Action implements MiddlewareInterface
 {
     /**
      * @SWG\Get(
-     *     path="/{type}",
+     *     path="/api/{type}",
      *     summary="list items of {type}",
      *     parameters={
      *          @SWG\Parameter(name="type", type="string", required=true, in="path")

@@ -21,7 +21,7 @@ class ListTypesAction extends Action implements MiddlewareInterface
 {
     /**
      * @SWG\Get(
-     *     path="/types",
+     *     path="/api/types",
      *     summary="get a list of types in use",
      *     @SWG\Response(
      *          response="default",

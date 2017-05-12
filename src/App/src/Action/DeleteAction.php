@@ -21,7 +21,7 @@ class DeleteAction extends Action implements MiddlewareInterface
 {
     /**
      * @SWG\Delete(
-     *      path="/{type}/{id}",
+     *      path="/api/{type}/{id}",
      *      parameters={
      *          @SWG\Parameter(name="type", type="string", required=true, in="path"),
      *          @SWG\Parameter(name="id", type="string", required=true, in="path"),

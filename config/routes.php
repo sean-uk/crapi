@@ -25,9 +25,9 @@
  *     'contact'
  * );
  */
-$app->any('/', App\Action\ApiDocAction::class, 'api.doc');
-$app->get('/types', App\Action\ListTypesAction::class, 'types.list');
-$app->get('/{type}', App\Action\ListAction::class, 'type.list');
-$app->get('/{type}/{id}', App\Action\GetAction::class, 'type.get');
-$app->put('/{type}/{id}', App\Action\PutAction::class, 'type.put');
-$app->delete('/{type}/{id}', App\Action\DeleteAction::class, 'type.delete');
+$app->any('/api', App\Action\ApiDocAction::class, 'api.doc');
+$app->get('/api/types', App\Action\ListTypesAction::class, 'types.list');
+$app->get('/api/{type}', App\Action\ListAction::class, 'type.list');
+$app->get('/api/{type}/{id}', App\Action\GetAction::class, 'type.get');
+$app->put('/api/{type}/{id}', App\Action\PutAction::class, 'type.put');
+$app->delete('/api/{type}/{id}', App\Action\DeleteAction::class, 'type.delete');
