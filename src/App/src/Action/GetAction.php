@@ -27,7 +27,7 @@ class GetAction extends Action implements MiddlewareInterface
 {
     /**
      * @SWG\Get(
-     *     path="/type/{type}/get/{id}",
+     *     path="/{type}/{id}",
      *     summary="Get Item {id} of the type {type}, if it exists.",
      *     parameters={
      *          @SWG\Parameter(name="type", type="string", required=true, in="path"),

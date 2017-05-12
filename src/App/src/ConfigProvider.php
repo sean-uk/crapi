@@ -8,6 +8,7 @@
 
 namespace App;
 
+use App\Action\DeleteAction;
 use App\Action\GetAction;
 use App\Action\ListAction;
 use App\Action\PutAction;
@@ -28,7 +29,8 @@ class ConfigProvider
             'factories' => [
                 GetAction::class => ActionFactory::class,
                 ListAction::class => ActionFactory::class,
-                PutAction::class => ActionFactory::class
+                PutAction::class => ActionFactory::class,
+                DeleteAction::class => ActionFactory::class
             ]
         ];
     }

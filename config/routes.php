@@ -26,6 +26,7 @@
  * );
  */
 $app->any('/', App\Action\ApiDocAction::class, 'api.doc');
-$app->get('/type/{type}/list', App\Action\ListAction::class, 'type.list');
-$app->get('/type/{type}/get/{id}', App\Action\GetAction::class, 'type.get');
-$app->put('/type/{type}/put/{id}', App\Action\PutAction::class, 'type.put');
+$app->get('/{type}', App\Action\ListAction::class, 'type.list');
+$app->get('/{type}/{id}', App\Action\GetAction::class, 'type.get');
+$app->put('/{type}/{id}', App\Action\PutAction::class, 'type.put');
+$app->delete('/{type}/{id}', App\Action\DeleteAction::class, 'type.delete');

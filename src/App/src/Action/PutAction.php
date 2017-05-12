@@ -28,7 +28,7 @@ class PutAction extends Action implements MiddlewareInterface
 {
     /**
      * @SWG\Put(
-     *      path="type/{type}/put/{id}",
+     *      path="{type}/{id}",
      *      summary="Insert / Update an Item of type {type}",
      *      parameters={
      *          @SWG\Parameter(name="type", type="string", required=true, in="path"),
