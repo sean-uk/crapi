@@ -8,14 +8,25 @@
 
 namespace App\Action;
 
+use App\Entity\Item;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\EntityRepository;
 
 class Action
 {
-    private $em;
+    /** @var EntityRepository */
+    private $item_repo;
 
     public function __construct(EntityManagerInterface $em)
     {
-        $this->em = $em;
+        $this->item_repo = $em->getRepository(Item::class);
+    }
+
+    /**
+     * @return EntityRepository
+     */
+    public function getItemRepo()
+    {
+        return $this->item_repo;
     }
 }

@@ -53,8 +53,10 @@ class GetAction extends Action implements MiddlewareInterface
         $typeName = $request->getAttribute('type');
         $id = $request->getAttribute('id');
 
-        $response = false;
-        $json = json_encode($response);
-        return new JsonResponse($json);
+        $item = $this->getItemRepo()->findOneBy(['id'=>$id, 'type'=>$typeName]);
+        $json = json_encode($item);
+
+        $reponseStatus = $item? 200 : 404;
+        return new JsonResponse($json, $reponseStatus);
     }
 }
