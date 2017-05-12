@@ -21,7 +21,7 @@ use Swagger;
  * @package App\Action
  *
  * @SWG\Swagger(
- *      @SWG\Info(title="crAPI - A resful(ish) api for CRUD'ing stuff of different 'types'", version="0.1"),
+ *      @SWG\Info(title="crAPI - A RESTful(ish) api for CRUD'ing stuff of different 'types'", version="0.1"),
  *      definitions={
  *          @SWG\Definition(
  *              definition="item",
