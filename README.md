@@ -2,10 +2,22 @@
 
 An example of a basic HTTP API based on the [Zend Expressive Skeleton](https://github.com/zendframework/zend-expressive-skeleton).
 
-## Installation
+## Installation & Config
 
 A standard LAMP setup with a VHost pointing at `public/index.php` will do.
 Just go to the parent folder and run a plain old `compoer install`
+
+### Database
+
+You'll need a database compatible with Doctrine ORM. SQLite is suggested for simplicity of setup.
+
+Don't forget to install the appropriate php module, ie; _php-sqlite3_.
+
+Next copy the file `config/autoload/doctrine.local.php.dist` as `config/autoload/doctrine.local.php`,
+then you can update the db url as you see fit.
+
+Once that's done, from the project root (ie; the folder composer.json is in) and run `vendor/bin/doctrine orm:schema-tool:create`
+to build the schema.
 
 ## What I Did:
 
