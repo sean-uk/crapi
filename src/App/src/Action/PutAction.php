@@ -8,8 +8,11 @@
 
 namespace App\Action;
 
+use App\Entity\Item;
+use Doctrine\ORM\ORMException;
 use Interop\Http\ServerMiddleware\DelegateInterface;
 use Interop\Http\ServerMiddleware\MiddlewareInterface;
+use TheSeer\Tokenizer\Exception;
 use Zend\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ServerRequestInterface;
 use Swagger as SWG;
@@ -48,9 +51,28 @@ class PutAction extends Action implements MiddlewareInterface
         $id = $request->getAttribute('id');
         $content = (string) $request->getBody();
 
-        $response = false;
+        // does it exist already? if so, get that.
+        $item = $this->getItemRepo()->findOneBy(['id'=>$id, 'type'=>$typeName]);
+        if (!$item) {
+            // create a new item
+            $item = new Item();
+            $item->setId($id);
+            $item->setType($typeName);
+        }
+
+        // update the value
+        $item->setValue($content);
+
+        try {
+            $this->getEm()->persist($item);
+            $this->getEm()->flush();
+
+            $response = true;
+        } catch(ORMException $e) {
+            $response = false;
+        }
+
         $json = json_encode($response);
         return new JsonResponse($json);
     }
-
 }

@@ -27,6 +27,7 @@ use Swagger;
  *              definition="item",
  *              properties={
  *                  @SWG\Property(property="id", type="string", description="An ID string unique to things of this type"),
+ *                  @SWG\Property(property="type", type="string", description="The type of the item"),
  *                  @SWG\Property(property="value", type="string", description="The value of this thing")
  *              }
  *          )

@@ -17,9 +17,13 @@ class Action
     /** @var EntityRepository */
     private $item_repo;
 
+    /** @var EntityManagerInterface $em */
+    private $em;
+
     public function __construct(EntityManagerInterface $em)
     {
         $this->item_repo = $em->getRepository(Item::class);
+        $this->em = $em;
     }
 
     /**
@@ -28,5 +32,13 @@ class Action
     public function getItemRepo()
     {
         return $this->item_repo;
+    }
+
+    /**
+     * @return EntityManagerInterface
+     */
+    public function getEm()
+    {
+        return $this->em;
     }
 }

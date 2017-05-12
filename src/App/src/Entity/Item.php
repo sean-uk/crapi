@@ -25,6 +25,7 @@ class Item implements JsonSerializable
     /**
      * @ORM\Id
      * @ORM\Column(name="serial", type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @var int
      */
     private $serial;
