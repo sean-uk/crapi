@@ -13,6 +13,7 @@ use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Zend\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ServerRequestInterface;
 use Swagger as SWG;
+use App\Action\Action;
 
 /**
  * Store an item of a given type under a given ID
@@ -20,7 +21,7 @@ use Swagger as SWG;
  * Class PutAction
  * @package App\Action
  */
-class PutAction implements MiddlewareInterface
+class PutAction extends Action implements MiddlewareInterface
 {
     /**
      * @SWG\Put(

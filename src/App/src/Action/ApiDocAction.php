@@ -34,7 +34,7 @@ use Swagger;
  * )
  *
  * @see http://zircote.com/swagger-php/
- * @see https://github.com/zircote/swagger-php
+ * @see https://github.com/zircote/swagger-php/blob/master/docs/Getting-started.md
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#operationObject
  */
 class ApiDocAction implements MiddlewareInterface

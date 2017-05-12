@@ -16,3 +16,8 @@ This is based on the [Expressive Skeleton Quick Start](http://zendframework.gith
 3. Create a \App\ConfigProvider, along with it's `::__invoke()` method.
 4. Add our ConfigProvider to the config setup in config/config.php
 5. Add the ListAction as an invokable, as in [Quickstart Next Steps](http://zendframework.github.io/zend-expressive/getting-started/skeleton/#next-steps)
+
+...
+
+6. Start adding some RESTful API documentation using [swagger-php](https://github.com/zircote/swagger-php/blob/master/docs/Getting-started.md).
+7. Start setting up [Doctrine ORM for Zend Expressive](https://www.jamestitcumb.com/posts/integrating-doctrine-expressive-easier)

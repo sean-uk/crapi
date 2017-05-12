@@ -13,6 +13,7 @@ use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Zend\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ServerRequestInterface;
 use Swagger as SWG;
+use App\Action\Action;
 
 /**
  * List all the items of a given type
@@ -20,7 +21,7 @@ use Swagger as SWG;
  * Class ListAction
  * @package App\Action
  */
-class ListAction implements MiddlewareInterface
+class ListAction extends Action implements MiddlewareInterface
 {
     /**
      * @SWG\Get(

@@ -13,6 +13,9 @@ use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Zend\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ServerRequestInterface;
 use Swagger as SWG;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Item;
+use App\Action\Action;
 
 /**
  * Get an item of a particular type by it's ID
@@ -20,7 +23,7 @@ use Swagger as SWG;
  * Class GetAction
  * @package App\Action
  */
-class GetAction implements MiddlewareInterface
+class GetAction extends Action implements MiddlewareInterface
 {
     /**
      * @SWG\Get(

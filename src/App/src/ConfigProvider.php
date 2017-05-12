@@ -8,13 +8,28 @@
 
 namespace App;
 
-
+use App\Action\GetAction;
 use App\Action\ListAction;
+use App\Action\PutAction;
+use App\Action\ActionFactory;
 
 class ConfigProvider
 {
     public function __invoke()
     {
-        return [];
+        return [
+            'dependencies' => $this->getDependencies()
+        ];
+    }
+
+    public function getDependencies()
+    {
+        return [
+            'factories' => [
+                GetAction::class => ActionFactory::class,
+                ListAction::class => ActionFactory::class,
+                PutAction::class => ActionFactory::class
+            ]
+        ];
     }
 }

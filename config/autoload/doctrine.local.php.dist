@@ -1,0 +1,31 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: sean.james
+ * Date: 12/05/2017
+ * Time: 09:55
+ */
+return [
+    'doctrine' => [
+        'connection' => [
+            'orm_default' => [
+                'params' => [
+                    'url' => 'sqlite://crapi.sqlite',
+                ],
+            ],
+        ],
+        'driver' => [
+            'orm_default' => [
+                'class' => \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain::class,
+                'drivers' => [
+                    'App\Entity' => 'crapi_entity',
+                ],
+            ],
+            'crapi_entity' => [
+                'class' => \Doctrine\ORM\Mapping\Driver\AnnotationDriver::class,
+                'cache' => 'array',
+                'paths' => __DIR__ . '/../../src/App/src/Entity',
+            ],
+        ],
+    ],
+];
