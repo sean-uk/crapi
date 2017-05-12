@@ -19,6 +19,11 @@ then you can update the db url as you see fit.
 Once that's done, from the project root (ie; the folder composer.json is in) and run `vendor/bin/doctrine orm:schema-tool:create`
 to build the schema.
 
+## Usage
+
+Open up your faviourite API Client (ie; Postman / RESTClient) and make a request to the VHost you set up.
+It will reply with JSON API documentation. You can explore the API's functionality from there!
+
 ## What I Did:
 
 This is based on the [Expressive Skeleton Quick Start](http://zendframework.github.io/zend-expressive/getting-started/skeleton/).
