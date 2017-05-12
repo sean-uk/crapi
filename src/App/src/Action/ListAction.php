@@ -43,7 +43,7 @@ class ListAction extends Action implements MiddlewareInterface
      */
     public function process(ServerRequestInterface $request, DelegateInterface $delegate)
     {
-        $typeName = $request->getAttribute('type');
+        $typeName = urldecode($request->getAttribute('type'));
 
         $items = $this->getItemRepo()->findBy(['type'=>$typeName]);
         return new JsonResponse($items);

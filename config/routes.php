@@ -26,6 +26,7 @@
  * );
  */
 $app->any('/', App\Action\ApiDocAction::class, 'api.doc');
+$app->get('/types', App\Action\ListTypesAction::class, 'types.list');
 $app->get('/{type}', App\Action\ListAction::class, 'type.list');
 $app->get('/{type}/{id}', App\Action\GetAction::class, 'type.get');
 $app->put('/{type}/{id}', App\Action\PutAction::class, 'type.put');

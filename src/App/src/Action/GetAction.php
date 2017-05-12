@@ -50,8 +50,8 @@ class GetAction extends Action implements MiddlewareInterface
      */
     public function process(ServerRequestInterface $request, DelegateInterface $delegate)
     {
-        $typeName = $request->getAttribute('type');
-        $id = $request->getAttribute('id');
+        $typeName = urldecode($request->getAttribute('type'));
+        $id = urldecode($request->getAttribute('id'));
 
         $item = $this->getItemRepo()->findOneBy(['id'=>$id, 'type'=>$typeName]);
 

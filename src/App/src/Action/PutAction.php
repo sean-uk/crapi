@@ -28,7 +28,7 @@ class PutAction extends Action implements MiddlewareInterface
 {
     /**
      * @SWG\Put(
-     *      path="{type}/{id}",
+     *      path="/{type}/{id}",
      *      summary="Insert / Update an Item of type {type}",
      *      parameters={
      *          @SWG\Parameter(name="type", type="string", required=true, in="path"),
@@ -47,8 +47,8 @@ class PutAction extends Action implements MiddlewareInterface
      */
     public function process(ServerRequestInterface $request, DelegateInterface $delegate)
     {
-        $typeName = $request->getAttribute('type');
-        $id = $request->getAttribute('id');
+        $typeName = urldecode($request->getAttribute('type'));
+        $id = urldecode($request->getAttribute('id'));
         $content = (string) $request->getBody();
 
         // does it exist already? if so, get that.

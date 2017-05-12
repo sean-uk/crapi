@@ -21,7 +21,7 @@ class DeleteAction extends Action implements MiddlewareInterface
 {
     /**
      * @SWG\Delete(
-     *      path="{type}/{id}",
+     *      path="/{type}/{id}",
      *      parameters={
      *          @SWG\Parameter(name="type", type="string", required=true, in="path"),
      *          @SWG\Parameter(name="id", type="string", required=true, in="path"),
@@ -39,8 +39,8 @@ class DeleteAction extends Action implements MiddlewareInterface
      */
     public function process(ServerRequestInterface $request, DelegateInterface $delegate)
     {
-        $typeName = $request->getAttribute('type');
-        $id = $request->getAttribute('id');
+        $typeName = urldecode($request->getAttribute('type'));
+        $id = urldecode($request->getAttribute('id'));
 
         // does it actally exist? if not, return a false status
         // (@todo surely there's a way to do this without fetching the whole thing?)
