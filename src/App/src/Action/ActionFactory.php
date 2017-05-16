@@ -8,6 +8,7 @@
 
 namespace App\Action;
 
+use App\Middleware\ForbiddenWordsFilterMiddleware;
 use App\Middleware\SecretHeaderMiddleware;
 use Interop\Container\ContainerInterface;
 use Doctrine\ORM\EntityManagerInterface;
@@ -32,6 +33,7 @@ class ActionFactory
         // now construct a pipeline which does some standard stuff then the action middleware
         $pipeline = new MiddlewarePipe();
         $pipeline->pipe($container->get(SecretHeaderMiddleware::class));
+        $pipeline->pipe($container->get(ForbiddenWordsFilterMiddleware::class));
         $pipeline->pipe($action);
 
         return $pipeline;

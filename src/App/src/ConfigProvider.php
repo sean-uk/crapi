@@ -15,6 +15,8 @@ use App\Action\ListAction;
 use App\Action\ListTypesAction;
 use App\Action\PutAction;
 use App\Action\ActionFactory;
+use App\Middleware\ForbiddenWordsFilterFactory;
+use App\Middleware\ForbiddenWordsFilterMiddleware;
 use App\Middleware\SecretHeaderMiddleware;
 
 class ConfigProvider
@@ -22,7 +24,8 @@ class ConfigProvider
     public function __invoke()
     {
         return [
-            'dependencies' => $this->getDependencies()
+            'dependencies' => $this->getDependencies(),
+            'forbidden_words' => $this->getForbiddenWords()
         ];
     }
 
@@ -36,10 +39,16 @@ class ConfigProvider
                 PutAction::class => ActionFactory::class,
                 DeleteAction::class => ActionFactory::class,
                 ListTypesAction::class => ActionFactory::class,
+                ForbiddenWordsFilterMiddleware::class => ForbiddenWordsFilterFactory::class
             ],
             'invokables' => [
-                SecretHeaderMiddleware::class => SecretHeaderMiddleware::class
+                SecretHeaderMiddleware::class => SecretHeaderMiddleware::class,
             ]
         ];
+    }
+
+    public function getForbiddenWords()
+    {
+        return [];
     }
 }
