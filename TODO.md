@@ -6,4 +6,3 @@
 ## Improve
 
 * API Docs: definition paths etc.
-* Stream filter on request body, don't cast to string.

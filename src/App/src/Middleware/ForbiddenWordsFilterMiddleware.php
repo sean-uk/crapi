@@ -8,6 +8,7 @@
 
 namespace App\Middleware;
 
+use App\Stream\ReadCallbackStream;
 use Interop\Http\ServerMiddleware\DelegateInterface;
 use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -66,11 +67,12 @@ class ForbiddenWordsFilterMiddleware implements MiddlewareInterface
         }
 
         // clean up the body text
-        // @todo better to use a stream filter.
-        $body = (string)$request->getBody();
-        $censoredBody = $this->censorString($body);
-        $censoredBodyStream = Psr7\stream_for($censoredBody);
-        $request = $request->withBody($censoredBodyStream);
+        $body = $request->getBody();
+
+        // @todo this won't work so well if the read lengh happens to disect a forbidden word!
+        $censorCallback = [$this, 'censorString'];
+        $newBody = new ReadCallbackStream($body, $censorCallback);
+        $request = $request->withBody($newBody);
 
         return $delegate->process($request);
     }
