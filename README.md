@@ -29,6 +29,14 @@ It will reply with JSON API documentation. You can explore the API's functionali
 A dummy auth header middleware has been added to the api routes. 
 To try it out, add a header in your request called "Auth", with the value simply "false".  
 
+### 'Forbidden Words'
+
+As an example of input filtering middleware, the app checks api input against the list in the config setting `forbidden_words`
+You can copy `config/autoload/forbidden-words.local.php.dist` as `config/autoload/forbidden-words.local.php` and define it there if you like.
+
+Forbidden words in the URI params will result in an error response, but if they're in the request body they'll just be 
+replaced with asterisks.
+
 ## What I Did:
 
 This is based on the [Expressive Skeleton Quick Start](http://zendframework.github.io/zend-expressive/getting-started/skeleton/).
@@ -47,3 +55,7 @@ This is based on the [Expressive Skeleton Quick Start](http://zendframework.gith
 ...
 
 8. Configure [route-specific middleware](https://docs.zendframework.com/zend-expressive/cookbook/route-specific-pipeline/) for authentication.
+
+...
+
+9. Add an additional piece of input filter / validator middleware \App\Middleware\ForbiddenWordsFilterMiddleware.
