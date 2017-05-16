@@ -25,7 +25,6 @@ class ConfigProvider
     {
         return [
             'dependencies' => $this->getDependencies(),
-            'forbidden_words' => $this->getForbiddenWords()
         ];
     }
 
@@ -45,10 +44,5 @@ class ConfigProvider
                 SecretHeaderMiddleware::class => SecretHeaderMiddleware::class,
             ]
         ];
-    }
-
-    public function getForbiddenWords()
-    {
-        return [];
     }
 }
