@@ -59,3 +59,7 @@ This is based on the [Expressive Skeleton Quick Start](http://zendframework.gith
 ...
 
 9. Add an additional piece of input filter / validator middleware \App\Middleware\ForbiddenWordsFilterMiddleware.
+
+...
+
+10. Begin adding [PHPUnit](https://phpunit.de/) tests using [Phake](http://phake.readthedocs.io/en/2.1/introduction.html) for cleaner mocking.
