@@ -19,7 +19,7 @@ class SecretHeaderMiddlewareTest extends TestCase
     /** @var SecretHeaderMiddleware $middleware */
     private $middleware;
 
-    /** @var RequestInterface $request */
+    /** @var ServerRequestInterface $request */
     private $request;
 
     /** @var DelegateInterface $delegate */
